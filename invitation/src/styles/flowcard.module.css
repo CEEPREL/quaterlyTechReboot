@@ -1,0 +1,41 @@
+.card_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.card {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  background-color: #00221b;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card_header {
+  color: #e1c340;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-family: "Montserrat";
+}
+.card_description {
+  color: #efefef;
+  font-weight: 400;
+  margin-bottom: 12px;
+  font-family: "Montserrat";
+}
+.card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+.card ul li {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Montserrat";
+  color: #f5f5f5;
+}

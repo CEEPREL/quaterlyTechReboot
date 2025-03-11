@@ -1,0 +1,33 @@
+.about_container {
+  width: 100%;
+  padding-block: 50px;
+}
+.about_content {
+  width: 80%;
+  margin: 0 auto;
+}
+.about_header {
+  font-size: 52px;
+  font-weight: 700;
+  font-family: "Montserrat";
+  margin-bottom: 24px;
+  color: #00221b;
+  text-transform: uppercase;
+}
+.about_description {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Montserrat";
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.about_description2 {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Montserrat";
+  color: #333;
+  line-height: 1.5;
+  text-align: left;
+}

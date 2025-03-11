@@ -1,0 +1,15 @@
+.eventflow_container {
+  width: 100%;
+  padding-block: 40px;
+}
+.eventflow_content {
+  width: 80%;
+  margin: 0 auto;
+}
+.eventflow_header {
+  font-size: 52px;
+  font-weight: 700;
+  font-family: "Montserrat";
+  margin-bottom: 32px;
+  color: #00221b;
+}

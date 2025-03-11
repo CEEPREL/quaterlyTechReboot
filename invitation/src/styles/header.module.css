@@ -1,0 +1,22 @@
+header {
+  width: 100%;
+  padding: 10px 24px;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+.header_content h1 {
+  font-size: 32px;
+  color: #e1c340;
+}
+.header_content button {
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+}
