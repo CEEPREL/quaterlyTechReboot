@@ -5,10 +5,17 @@ import Group from "../assets/Icons/Group";
 import EventFlowCard from "./EventFlowCard";
 import Interpreter from "../assets/Icons/Interpreter";
 import { motion } from "framer-motion";
-import { useRef } from "react";
 import { useInView } from "framer-motion";
 
+import { useStoreContext } from "../context/store";
+
 function EventFlow() {
+  const { sectionsRef } = useStoreContext();
+  const isInView = useInView(sectionsRef.section3, {
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   const cardContent = [
     {
       title: `Industry Insights & Fireside Chat (30 mins – Panel Discussion)`,
@@ -43,8 +50,7 @@ function EventFlow() {
         `How to land international remote jobs & sponsorship deals`,
         `Mock interview & resume feedback from recruiters`,
         `Freelance networking hub – Meet potential clients & partners`,
-        `Tech & media collaboration – Connecting brands, content creators &
-         software professionals`,
+        `Tech & media collaboration – Connecting brands, content creators & software professionals`,
         `The Future of Work – AI, Automation & Digital Transformation`,
       ],
       image: <Group />,
@@ -53,8 +59,7 @@ function EventFlow() {
       title: `The Power Pitch & Brand Showcase (25 mins – Spotlight & Closing)`,
       description: "",
       points: [
-        `Showcasing sponsor brands & partner organizations (Tech companies,
-         media agencies, software firms, etc.)`,
+        `Showcasing sponsor brands & partner organizations (Tech companies, media agencies, software firms, etc.)`,
         `Spotlighting standout talents (Live portfolio & project showcases)`,
         `Recognizing industry contributions (Awards, grants, or special recognitions if applicable)`,
         `Closing remarks & event highlights`,
@@ -63,19 +68,16 @@ function EventFlow() {
     },
   ];
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
-
   return (
     <motion.div
       className={styles.eventflow_container}
-      ref={ref}
+      ref={sectionsRef.section3}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 2, ease: "easeOut" }}
     >
       <div className={styles.eventflow_content}>
-        <h1 className={styles.eventflow_header}>Event flow</h1>
+        <h1 className={styles.eventflow_header}>Event Flow</h1>
         <EventFlowCard cardContent={cardContent} />
       </div>
     </motion.div>
