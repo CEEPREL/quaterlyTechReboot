@@ -1,20 +1,32 @@
+import { useState } from "react";
 import styles from "../styles/registermodal.module.css";
 import { useStoreContext } from "../context/store";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../ValidationSchema/register";
+import useRegister from "../Hooks/useRegister";
 
 export default function RegisterModal() {
-  const { state } = useStoreContext();
+  const { state, dispatch } = useStoreContext();
+  const handleRegistration = useRegister();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const response = await handleRegistration(data);
+    setLoading(false);
+
+    if (response.success) {
+      reset();
+      dispatch({ type: "TOGGLE_REGISTER_FORM" });
+    }
   };
 
   return (
@@ -22,8 +34,12 @@ export default function RegisterModal() {
       className={`${styles.reg_mod_container} ${
         state.isRegisterFormOpen ? styles.show : ""
       }`}
+      onClick={() => dispatch({ type: "TOGGLE_REGISTER_FORM" })}
     >
-      <div className={styles.reg_mod_content}>
+      <div
+        className={styles.reg_mod_content}
+        onClick={(e) => e.stopPropagation()}
+      >
         <form className={styles.reg_mod_form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.form_control}>
             <label htmlFor='name'>Name</label>
@@ -66,7 +82,9 @@ export default function RegisterModal() {
             </select>
             <p className={styles.err}>{errors.mode_of_attendance?.message}</p>
           </div>
-          <button className={styles.register_btn}>Register</button>
+          <button className={styles.register_btn} disabled={loading}>
+            {loading ? "Registering..." : "Register"}
+          </button>
         </form>
       </div>
     </div>

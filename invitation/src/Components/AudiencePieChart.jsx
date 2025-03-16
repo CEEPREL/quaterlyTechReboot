@@ -62,9 +62,18 @@ const CustomLegend = ({ data, isMobile }) => (
 
 export default function AudienceDonutChart() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isTablet, setIsTablet] = useState(window.innerWidth <= 1024);
+  const [chartSize, setChartSize] = useState(
+    window.innerWidth <= 768 ? 250 : 300
+  );
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth <= 1024);
+      setChartSize(window.innerWidth <= 768 ? 250 : 300);
+    };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -76,17 +85,17 @@ export default function AudienceDonutChart() {
         flexDirection: isMobile ? "column" : "row",
         alignItems: "center",
         justifyContent: "center",
-        gap: isMobile ? "8px" : "20px",
+        gap: isTablet ? "12px" : isMobile ? "8px" : "20px",
         textAlign: "center",
       }}
     >
-      <PieChart width={300} height={300}>
+      <PieChart width={chartSize} height={chartSize}>
         <Pie
           data={audienceData}
           cx='50%'
           cy='50%'
-          innerRadius={70}
-          outerRadius={120}
+          innerRadius={isMobile ? 50 : 70}
+          outerRadius={isMobile ? 100 : 120}
           label={false}
           labelLine={false}
           dataKey='value'
@@ -95,7 +104,7 @@ export default function AudienceDonutChart() {
             <Cell key={`cell-${index}`} fill={entry.color} />
           ))}
         </Pie>
-        <Tooltip />
+        <Tooltip formatter={(value) => `${value}%`} />
       </PieChart>
       <CustomLegend data={audienceData} isMobile={isMobile} />
     </div>
