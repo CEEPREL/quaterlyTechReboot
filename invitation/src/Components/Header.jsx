@@ -12,7 +12,9 @@ export default function Header() {
   return (
     <header>
       <div className={styles.header_content}>
-        <h1>LOGO HERE</h1>
+        <h1 className='logo-text'>
+          Quarterly <span className='highlight'>Tech Event</span>
+        </h1>
         <button onClick={OpenSideBar}>
           <HambergerMenu size='42' color='#E1C340' />
         </button>

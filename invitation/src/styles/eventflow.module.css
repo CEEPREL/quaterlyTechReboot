@@ -2,14 +2,33 @@
   width: 100%;
   padding-block: 40px;
 }
+
 .eventflow_content {
   width: 80%;
   margin: 0 auto;
 }
+
 .eventflow_header {
-  font-size: 52px;
+  font-size: clamp(28px, 5vw, 52px);
   font-weight: 700;
   font-family: "Montserrat";
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   color: #00221b;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .eventflow_content {
+    width: 90%;
+  }
+
+  .eventflow_header {
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .eventflow_header {
+    margin-bottom: 16px;
+    text-align: center;
+  }
 }
