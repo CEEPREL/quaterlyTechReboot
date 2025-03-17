@@ -22,7 +22,7 @@ export default function SideBar() {
     >
       <div className={styles.side_bar_content}>
         <button onClick={closeSideBar} className={styles.close_btn}>
-          <CloseCircle size='42' color='#e1c340' />
+          <CloseCircle size="42" color="#e1c340" />
         </button>
         <div className={styles.side_bar_nav_btn}>
           <button onClick={() => scrollToSection("section1")}>About Us</button>

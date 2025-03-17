@@ -37,7 +37,7 @@
 .close_btn {
   position: absolute;
   left: 8px;
-  top: 8px;
+  top: 90px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -99,7 +99,7 @@
 
   .close_btn {
     left: 12px;
-    top: 12px;
+    top: 120px;
     font-size: 28px;
   }
 

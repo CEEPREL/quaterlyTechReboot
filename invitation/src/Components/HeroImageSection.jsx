@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import styles from "../styles/herosection.module.css";
 import Header from "./Header";
 import { useStoreContext } from "../context/store";
+
 const heroImagesArray = ["/images/image1.jpg", "/images/image2.jpg"];
 
 const HeroImageSection = () => {
@@ -35,7 +36,7 @@ const HeroImageSection = () => {
         <motion.img
           key={currentIndex}
           src={heroImagesArray[currentIndex]}
-          alt='Hero Background'
+          alt="Hero Background"
           className={styles.hero_image}
           initial={{ opacity: 0.3 }}
           animate={{ opacity: 1 }}
@@ -44,9 +45,8 @@ const HeroImageSection = () => {
         <div className={styles.text_overlay}>
           <h1>Quarterly Tech Reboot</h1>
           <p>
-            is a rotational hybrid tech event happening across Nigeria—
-            <br />
-            coming soon to your community!
+            A rotational hybrid tech event happening across Nigeria— Coming soon
+            to your community!
           </p>
           <button className={styles.register_button} onClick={openRegisterForm}>
             Register Now

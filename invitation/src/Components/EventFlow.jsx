@@ -6,7 +6,6 @@ import EventFlowCard from "./EventFlowCard";
 import Interpreter from "../assets/Icons/Interpreter";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-
 import { useStoreContext } from "../context/store";
 
 function EventFlow() {

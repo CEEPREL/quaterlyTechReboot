@@ -1,74 +1,57 @@
 .about_container {
-  width: 100%;
-  padding-block: 50px;
+  padding: 50px 20px;
+  background: linear-gradient(
+    135deg,
+    #f4f9f9,
+    #f0f5f5
+  ); /* Light and soft background for the container */
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  max-width: 800px;
+  transition: all 0.3s ease;
 }
 
 .about_content {
-  width: 80%;
-  margin: 0 auto;
+  text-align: center;
+  color: #00221b; /* Using your darker theme color for the text */
 }
 
 .about_header {
-  font-size: clamp(32px, 5vw, 52px);
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  margin-bottom: 24px;
-  color: #00221b;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  color: #e1c340; /* Applying your yellow shade for the header */
+  font-weight: 600;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for contrast */
 }
 
 .about_description,
 .about_description2 {
-  font-size: clamp(14px, 2vw, 16px);
-  font-weight: 400;
-  font-family: "Montserrat", sans-serif;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  text-align: left;
+  font-family: "Roboto", sans-serif;
+  color: #00221b; /* Using your dark green shade for the text */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (max-width: 1024px) {
-  .about_content {
-    width: 90%;
-  }
+.about_description2 {
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
-  .about_container {
-    padding-block: 40px;
-  }
-
-  .about_content {
-    width: 95%;
-  }
-
   .about_header {
-    font-size: 40px;
+    font-size: 2rem;
   }
 
   .about_description,
   .about_description2 {
-    text-align: justify;
-  }
-}
-
-@media (max-width: 480px) {
-  .about_container {
-    padding-block: 30px;
-  }
-
-  .about_header {
-    font-size: 28px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  .about_description,
-  .about_description2 {
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
+    font-size: 1rem;
   }
 }
