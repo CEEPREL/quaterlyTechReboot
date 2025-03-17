@@ -1,4 +1,4 @@
-import { Call, MessageText } from "iconsax-react";
+import { Call, Instagram, MessageText } from "iconsax-react";
 import styles from "../styles/contact.module.css";
 import { useStoreContext } from "../context/store";
 
@@ -25,6 +25,9 @@ export default function Contact() {
             event@quarterlytechreboot.com.ng
           </a>
         </p>
+        <a href="https://www.instagram.com/q_techreboot?igsh=cnRsMjZ1OGVmd3U2">
+          <Instagram />
+        </a>
       </div>
     </div>
   );
