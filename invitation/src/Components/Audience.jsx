@@ -1,18 +1,20 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
 import { useInView } from "framer-motion";
-
+import { useStoreContext } from "../context/store";
 import AudiencePieChart from "./AudiencePieChart";
 import styles from "../styles/audience.module.css";
 
 const Audience = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
+  const { sectionsRef } = useStoreContext();
+  const isInView = useInView(sectionsRef.section2, {
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   return (
     <motion.div
       className={styles.audience_container}
-      ref={ref}
+      ref={sectionsRef.section2}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 2, ease: "easeOut" }}

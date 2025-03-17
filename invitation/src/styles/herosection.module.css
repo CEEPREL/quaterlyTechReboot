@@ -5,11 +5,126 @@
   overflow: hidden;
 }
 
-.hero_ {
+.hero_image {
   position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 90%;
+  object-fit: cover; /* Cover entire section */
+  filter: brightness(50%); /* Darken background for readability */
+  transition: filter 0.3s ease;
+}
+
+.hero_image:hover {
+  filter: brightness(70%); /* Slightly brighten on hover */
+}
+
+.text_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  padding: 25px 40px;
+  border-radius: 12px;
+  max-width: 80%;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+.text_overlay h1 {
+  font-size: clamp(32px, 6vw, 60px); /* Dynamic font size */
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #e1c340; /* Gold accent */
+}
+
+.text_overlay p {
+  font-size: clamp(18px, 2.5vw, 22px);
+  margin: 15px 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+}
+
+.register_button {
+  background: #e1c340;
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow to make button stand out */
+}
+
+.register_button:hover {
+  background: #c9a035; /* Slightly darker gold on hover */
+  transform: scale(1.05); /* Subtle scale effect */
+}
+
+.register_button:focus {
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .text_overlay {
+    max-width: 85%;
+    padding: 20px 30px;
+  }
+
+  .register_button {
+    padding: 14px 40px;
+    font-size: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text_overlay {
+    max-width: 90%;
+    width: 330px;
+    padding: 18px;
+  }
+
+  .text_overlay h1 {
+    font-size: 20px;
+  }
+
+  .text_overlay p {
+    font-size: 18px;
+  }
+
+  .register_button {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text_overlay {
+    max-width: 80%;
+    padding: 16px;
+  }
+
+  .text_overlay h1 {
+    font-size: 15px;
+  }
+
+  .text_overlay p {
+    font-size: 16px;
+  }
+
+  .register_button {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
 }

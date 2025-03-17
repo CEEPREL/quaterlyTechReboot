@@ -1,22 +1,77 @@
-header {
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@500&display=swap");
+
+.header {
   width: 100%;
-  padding: 10px 24px;
+  padding: 20px 40px; /* Adjusted padding for better spacing */
+  background-color: #000; /* Black background to contrast with white logo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .header_content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  align-items: center;
+  max-width: 1200px; /* Constrained width */
+  margin: 0 auto;
 }
-.header_content h1 {
-  font-size: 32px;
-  color: #e1c340;
+
+.logo_text {
+  font-family: "Poppins", sans-serif; /* Clean, modern font */
+  font-size: 2rem;
+  font-weight: 700;
+  color: white; /* White text color */
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 2px 6px rgba(225, 195, 64, 0.7); /* Text shadow in yellow */
 }
-.header_content button {
-  padding: 8px;
+
+.integral_sign {
+  color: #e1c340; /* Yellow integral sign */
+  font-size: 2.5rem;
+  margin-right: 8px; /* Small space between integral sign and text */
+}
+
+.highlight {
+  color: #e1c340; /* Highlighted text color for "Tech Reboot" */
+  text-transform: uppercase;
+}
+
+.hamburger_button {
+  background: none;
   border: none;
   cursor: pointer;
-  outline: none;
-  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger_button:hover {
+  transform: scale(1.1); /* Small hover effect */
+}
+
+@media (max-width: 768px) {
+  .logo_text {
+    font-size: 1.6rem; /* Adjust font size on smaller screens */
+  }
+
+  .hamburger_button {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo_text {
+    font-size: 15px;
+  }
+
+  .hamburger_button {
+    padding: 6px;
+  }
 }

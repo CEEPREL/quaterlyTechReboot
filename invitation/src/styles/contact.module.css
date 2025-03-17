@@ -1,0 +1,37 @@
+.contact_container {
+  width: 100%;
+  padding-block: 30px;
+  background-color: #00221b;
+}
+.contact_content {
+  width: 80%;
+  margin: 0 auto;
+}
+.contact_header {
+  text-align: center;
+  color: #e1c340;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Montserrat";
+}
+.contact {
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Montserrat";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.contact a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+.contact a:hover {
+  color: #333;
+  text-decoration: underline;
+}

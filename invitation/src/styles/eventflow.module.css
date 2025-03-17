@@ -1,15 +1,102 @@
 .eventflow_container {
   width: 100%;
-  padding-block: 40px;
+  padding-block: 60px; /* Adjusted padding for a balanced layout */
+  background: #f4f4f9; /* Light background to distinguish event flow section */
 }
+
 .eventflow_content {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
+  max-width: 1200px; /* Constrained max width for large screens */
+  padding: 0 20px;
 }
+
 .eventflow_header {
-  font-size: 52px;
+  font-size: clamp(32px, 5vw, 52px); /* Dynamic font scaling */
   font-weight: 700;
-  font-family: "Montserrat";
-  margin-bottom: 32px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 30px; /* More space for separation */
   color: #00221b;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Subtle letter spacing */
+}
+
+.eventflow_card_wrapper {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Flexible grid layout */
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.eventflow_card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.eventflow_card:hover {
+  transform: translateY(-10px); /* Hover effect for interactivity */
+}
+
+.eventflow_card_header {
+  background: #e1c340; /* Gold accent */
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.eventflow_card_body {
+  padding: 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.eventflow_card_body ul {
+  padding-left: 20px;
+}
+
+.eventflow_card_body li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.eventflow_card_body svg {
+  margin-right: 15px; /* Space between icon and text */
+  fill: #e1c340; /* Icon color matches header */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .eventflow_content {
+    width: 90%;
+  }
+
+  .eventflow_header {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventflow_card_wrapper {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+
+  .eventflow_header {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventflow_card_body {
+    font-size: 0.9rem; /* Smaller font size on very small screens */
+  }
 }
