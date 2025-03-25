@@ -12,7 +12,6 @@
   right: 0;
   z-index: 1000;
 }
-
 .header_content {
   display: flex;
   justify-content: space-between;
@@ -55,7 +54,7 @@
 }
 
 .hamburger_button:hover {
-  transform: scale(1.1); /* Small hover effect */
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

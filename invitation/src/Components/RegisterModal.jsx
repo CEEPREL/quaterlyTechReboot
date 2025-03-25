@@ -22,7 +22,12 @@ export default function RegisterModal() {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    const response = await handleRegistration(data);
+
+    const timestamp = new Date().toISOString();
+
+    const requestData = { ...data, createdAt: timestamp };
+
+    const response = await handleRegistration(requestData);
     setLoading(false);
 
     if (response.success) {
