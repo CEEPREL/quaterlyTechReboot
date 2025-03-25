@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../ValidationSchema/register";
 import useRegister from "../Hooks/useRegister";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterModal() {
   const { state, dispatch } = useStoreContext();
   const handleRegistration = useRegister();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -26,6 +28,7 @@ export default function RegisterModal() {
     if (response.success) {
       reset();
       dispatch({ type: "TOGGLE_REGISTER_FORM" });
+      navigate("/");
     }
   };
 

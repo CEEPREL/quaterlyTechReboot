@@ -1,17 +1,12 @@
 import styles from "../styles/sidebar.module.css";
-import { CloseCircle } from "iconsax-react";
 import { useStoreContext } from "../context/store";
-
+import { useNavigate } from "react-router-dom";
 export default function SideBar() {
   const { dispatch, state, scrollToSection } = useStoreContext();
-
-  const closeSideBar = () => {
-    dispatch({ type: "TOGGLE_SIDE_BAR" });
-  };
-
+  const navigate = useNavigate();
   const openRegisterForm = () => {
-    dispatch({ type: "TOGGLE_REGISTER_FORM" });
     dispatch({ type: "TOGGLE_SIDE_BAR" });
+    navigate("/registration");
   };
 
   return (
@@ -21,9 +16,6 @@ export default function SideBar() {
       }`}
     >
       <div className={styles.side_bar_content}>
-        <button onClick={closeSideBar} className={styles.close_btn}>
-          <CloseCircle size="42" color="#e1c340" />
-        </button>
         <div className={styles.side_bar_nav_btn}>
           <button onClick={() => scrollToSection("section1")}>About Us</button>
           <button onClick={() => scrollToSection("section2")}>

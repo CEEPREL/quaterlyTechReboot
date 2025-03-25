@@ -1,46 +1,26 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import styles from "../styles/herosection.module.css";
-import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../context/store";
 
-const heroImagesArray = ["/images/image1.jpg", "/images/image2.jpg"];
+import heroImage from "/images/image1.jpg";
 
 const HeroImageSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const { dispatch } = useStoreContext();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroImagesArray.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    heroImagesArray.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
+  const navigate = useNavigate();
 
   const openRegisterForm = () => {
     dispatch({ type: "TOGGLE_REGISTER_FORM" });
+    navigate("/registration");
   };
 
   return (
     <div className={styles.hero_container}>
-      <Header />
       <div className={styles.image_wrapper}>
-        <motion.img
-          key={currentIndex}
-          src={heroImagesArray[currentIndex]}
-          alt="Hero Background"
+        <img
+          src={heroImage}
+          alt='Hero Background'
           className={styles.hero_image}
-          initial={{ opacity: 0.3 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
         />
         <div className={styles.text_overlay}>
           <h1>Quarterly Tech Reboot</h1>
